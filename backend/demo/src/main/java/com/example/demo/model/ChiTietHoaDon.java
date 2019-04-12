@@ -18,9 +18,7 @@ public class ChiTietHoaDon implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="mahoadon",referencedColumnName = "maHoaDon")
 	private HoaDon hoaDon;
-	@Id
 	@ManyToOne
-	@JoinColumn(name="maSanPham", referencedColumnName = "maSanPham")
 	private SanPham sanPham;
 	private double donGia;
 	private int soLuong;

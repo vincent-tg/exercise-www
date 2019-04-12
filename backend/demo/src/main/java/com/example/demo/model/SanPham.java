@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class SanPham implements Serializable {
-
+	
 	/**
 	 * 
 	 */
@@ -23,7 +23,8 @@ public class SanPham implements Serializable {
 	private String moTa;
 	private int soLuongTon;
 	private int namSanXuat;
-	@OneToMany(mappedBy = "sanPham")
+	@OneToMany
+	@JoinColumn(name = "sanpham")
 	private List<ChiTietHoaDon> chiTietHoaDons;
 	@ManyToOne
 	@JoinColumn(name="maNhaSanXuat", referencedColumnName = "maNhaSanXuat")
@@ -41,13 +42,6 @@ public class SanPham implements Serializable {
 		this.moTa = moTa;
 		this.namSanXuat = namSanXuat;
 		this.soLuongTon = 0;
-	}
-	
-	public List<ChiTietHoaDon> getChiTietHoaDons() {
-		return chiTietHoaDons;
-	}
-	public void setChiTietHoaDons(List<ChiTietHoaDon> chiTietHoaDons) {
-		this.chiTietHoaDons = chiTietHoaDons;
 	}
 	public String getMaSanPham() {
 		return maSanPham;

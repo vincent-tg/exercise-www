@@ -17,7 +17,6 @@ public class TaiKhoan {
 	private long id;
 	private String tentk;
 	private String password;
-	
 	@OneToOne
 	@JoinColumn(name = "maKhachhang")
 	private KhachHang kh;
