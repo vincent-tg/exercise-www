@@ -7,6 +7,6 @@ public class demoRESTController {
 	
 	@RequestMapping("/")
 	public String home() {
-		return "sanpham";
+		return "home";
 	}
 }

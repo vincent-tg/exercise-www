@@ -2,101 +2,133 @@
 <html xmlns:th="https://thymeleaf.org">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Home - Brand</title>
-<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-<link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-<link rel="stylesheet" href="/assets/css/smoothproducts.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Slider - Brand</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/assets/css/smoothproducts.css">
 </head>
 
 <body>
-	<nav
-		class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-		<div class="container">
-			<a class="navbar-brand logo" href="#">EBIKE</a>
-			<button class="navbar-toggler" data-toggle="collapse"
-				data-target="#navcol-1">
-				<span class="sr-only">Toggle navigation</span><span
-					class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navcol-1">
-				<ul class="nav navbar-nav ml-auto">
-					<li class="nav-item" role="presentation"><a
-						class="nav-link active" href="index.html">Home</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="features.html">Features</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="pricing.html">Pricing</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="about-us.html">About Us</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="contact-us.html">Contact Us</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<section class="clean-block clean-info dark">
+	<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" th:href="@{/}">EBIKE</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/sanpham}">Xe đạp điện</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/lienhe}">Liên hệ</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/giohang}">Giỏ hàng<i class="fa fa-shopping-cart"></i></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/dangnhap}">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<main class="page catalog-page">
+	<section class="clean-block clean-catalog dark">
 		<div class="container">
 			<div class="block-heading">
-				<h2 class="text-left text-info">Xe đạp điện</h2>
-				<p>Blah blah</p>
+				<h2 class="text-info">Xe Đạp Điện</h2>
+				<p>Điện khỏi đạp - Điện hết thì đạp</p>
 			</div>
-			<div class="row align-items-center">
-				<div class="col-md-6">
-					<img class="img-thumbnail" src="/assets/img/scenery/image5.jpg">
-				</div>
-				<div class="col-md-6">
-					<h3>#Xehot#Xemoi</h3>
-					<div class="getting-started-info">
-						<p>blah blah</p>
+			<div class="content">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="d-none d-md-block">
+							<div class="filters">
+								<div class="filter-item">
+									<h3>Hãng Sản Xuất</h3>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input"
+											id="formCheck-5" /><label class="form-check-label"
+											for="formCheck-5">Asama</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input"
+											id="formCheck-6" /><label class="form-check-label"
+											for="formCheck-6">DTP</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input"
+											id="formCheck-7" /><label class="form-check-label"
+											for="formCheck-7">HTC</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="d-md-none">
+							<a class="btn btn-link d-md-none filter-collapse"
+								data-toggle="collapse" aria-expanded="false"
+								aria-controls="filters" role="button" href="#filters">Filters<i
+								class="icon-arrow-down filter-caret"></i></a>
+							<div class="collapse" id="filters">
+								<div class="filters">
+									<div class="filter-item">
+										<h3>Hãng Sản Xuất</h3>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												id="formCheck-5" /><label class="form-check-label"
+												for="formCheck-5">Asama</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												id="formCheck-6" /><label class="form-check-label"
+												for="formCheck-6">DTP</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+												id="formCheck-7" /><label class="form-check-label"
+												for="formCheck-7">HTC</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<button class="btn btn-outline-primary btn-lg" type="button">Mua
-						ngay</button>
+					<div class="col-md-9">
+						<div class="products">
+							<div class="row no-gutters">
+								<th:block th:each="sanpham : ${listSanPham}">
+									<div class="col-12 col-md-6 col-lg-4">
+										<div class="clean-product-item">
+											<div class="image">
+												<a href="#"><img class="img-fluid d-block mx-auto"
+													src="/assets/img/tech/default-bike.png"></a>
+											</div>
+											<div class="product-name">
+												<a href="#" th:text="${sanpham.tenSanPham}"></a>
+											</div>
+											<div class="about">
+												<div class="rating">
+													<button class="btn btn-primary" type="button">Đặt
+														hàng</button>
+												</div>
+												<div class="price">
+													<h3 th:text="${sanpham.donGia}"></h3>
+												</div>
+											</div>
+										</div>
+									</div>
+								</th:block>
+							</div>
+							<nav>
+								<ul class="pagination">
+									<li class="page-item" th:each="pageNumber : ${pageNumbers}"><a
+										class="page-link" th:href="@{/sanpham(page=${pageNumber})}"
+										th:text=${pageNumber}></a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	</main>
-	<section>
-		<div class="container">
-			<div class="row">
-				<th:block th:each="sanpham : ${listSanPham}">
-					<div class="col-4 mt-2">
-						<div class="card">
-							<div class="card-body">
-								<h4 class="card-title" th:text="${sanpham.tenSanPham}"></h4>
-								<h6 class="text-muted card-subtitle mb-2" th:text="${sanpham.maSanPham}"></h6>
-								<p class="card-text">#Hinhanh</p>
-								<a class="card-link" href="#">Mua</a><a class="card-link"
-									href="#">Cho vào giỏ</a>
-							</div>
-						</div>
-					</div>
-			</div>
-			</th:block>
-		</div>
-	</section>
-	<section>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-auto text-center">
-					<nav class="text-left">
-						<ul class="pagination">
-							<!--<li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>  -->
-							<li class="page-item"  th:each="pageNumber : ${pageNumbers}"><a class="page-link"> </a></li>
-							<!-- <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>-->
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</section>
 	<footer class="page-footer dark">
 		<div class="container">
 			<div class="row">

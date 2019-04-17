@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -26,7 +27,7 @@ public class SanPhamController {
 
 	@RequestMapping(value = "/sanpham")
 	public String listSanPham(Model model,
-			@RequestParam(name="page",required = false, defaultValue = "0") Integer page,
+			@RequestParam(name="page",required = false, defaultValue = "1") Optional<Integer> page ,
 			@RequestParam(name="size",required = false, defaultValue = "6") Integer size,
 			@RequestParam(name="sort",required = false, defaultValue = "ASC") String sort
 			) {
@@ -37,7 +38,9 @@ public class SanPhamController {
 		if(sort.equals("DESC")) {
 			sortable = Sort.by("id").descending();
 		}
-		Pageable pageable = PageRequest.of(page, size, sortable);
+		int currentPage = page.orElse(1);
+		// Page nó đếm từ 0  - > end - Nên phải trừ giá trị hiện tại xuống 1 để khớp với cái Pageable
+		Pageable pageable = PageRequest.of(currentPage - 1, size, sortable);
 		Page<SanPham> pageSanPham = sanPhamRepository.findSanPhams(pageable);
 		int totalPage = pageSanPham.getTotalPages();
 		if(totalPage>0) {
@@ -47,10 +50,10 @@ public class SanPhamController {
 		model.addAttribute("listSanPham", sanPhamRepository.findSanPhams(pageable));
 		return "sanpham";
 	}
+	
 	@RequestMapping(value = "/sanpham/{id}")
-	public String getChitietSanPham(@PathVariable String maSanPham) {
-		//Do something
+	public String getChitietSanPham(Model model, @PathVariable String maSanPham) {
+		model.addAttribute("sanpham", sanPhamRepository.findById(maSanPham));
 		return "chitiet-sanpham";
-		
 	}
 }
