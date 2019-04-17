@@ -9,5 +9,5 @@ import com.example.demo.model.SanPham;
 
 public interface SanPhamRepository extends CrudRepository<SanPham, String> {
 	@Query("SELECT s FROM SanPham s")
-	Page<SanPham> findSanPhams(Pageable pageable);
+	Page<SanPham> findSanPhams(Pageable pageable); 
 }

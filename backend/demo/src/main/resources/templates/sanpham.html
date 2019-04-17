@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Home - Brand</title>
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+<link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+<link rel="stylesheet" href="/assets/css/smoothproducts.css">
+</head>
+
+<body>
+	<nav
+		class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+		<div class="container">
+			<a class="navbar-brand logo" href="#">EBIKE</a>
+			<button class="navbar-toggler" data-toggle="collapse"
+				data-target="#navcol-1">
+				<span class="sr-only">Toggle navigation</span><span
+					class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navcol-1">
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item" role="presentation"><a
+						class="nav-link active" href="index.html">Home</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link"
+						href="features.html">Features</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link"
+						href="pricing.html">Pricing</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link"
+						href="about-us.html">About Us</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link"
+						href="contact-us.html">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="clean-block clean-info dark">
+		<div class="container">
+			<div class="block-heading">
+				<h2 class="text-left text-info">Xe đạp điện</h2>
+				<p>Blah blah</p>
+			</div>
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<img class="img-thumbnail" src="/assets/img/scenery/image5.jpg">
+				</div>
+				<div class="col-md-6">
+					<h3>#Xehot#Xemoi</h3>
+					<div class="getting-started-info">
+						<p>blah blah</p>
+					</div>
+					<button class="btn btn-outline-primary btn-lg" type="button">Mua
+						ngay</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	</main>
+	<section>
+		<div class="container">
+			<div class="row">
+				<th:block th:each="sanpham : ${listSanPham}">
+					<div class="col-4 mt-2">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title" th:text="${sanpham.tenSanPham}"></h4>
+								<h6 class="text-muted card-subtitle mb-2" th:text="${sanpham.maSanPham}"></h6>
+								<p class="card-text">#Hinhanh</p>
+								<a class="card-link" href="#">Mua</a><a class="card-link"
+									href="#">Cho vào giỏ</a>
+							</div>
+						</div>
+					</div>
+			</div>
+			</th:block>
+		</div>
+	</section>
+	<section>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-auto text-center">
+					<nav class="text-left">
+						<ul class="pagination">
+							<!--<li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>  -->
+							<li class="page-item"  th:each="pageNumber : ${pageNumbers}"><a class="page-link"> </a></li>
+							<!-- <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>-->
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="page-footer dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<h5>Get started</h5>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Sign up</a></li>
+						<li><a href="#">Downloads</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>About us</h5>
+					<ul>
+						<li><a href="#">Company Information</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="#">Reviews</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Support</h5>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Help desk</a></li>
+						<li><a href="#">Forums</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Legal</h5>
+					<ul>
+						<li><a href="#">Terms of Service</a></li>
+						<li><a href="#">Terms of Use</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<p>© 2018 Copyright Text</p>
+		</div>
+	</footer>
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+	<script src="/assets/js/smoothproducts.min.js"></script>
+	<script src="/assets/js/theme.js"></script>
+</body>
+
+</html>
