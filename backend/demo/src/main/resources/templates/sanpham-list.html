@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Desc</th>
+			<th>Price</th>
+			<th>SoLuong</th>
+			<th>NamSX</th>
+		</tr>
+		<th:block th:each="sanpham : ${listSanPham}">
+			<tr>
+				<td><p th:text="${sanpham.maSanPham}"></p></td>
+				<td><p th:text="${sanpham.tenSanPham}"></p></td>
+				<td><p th:text="${sanpham.moTa}"></p></td>
+				<td><p th:text="${sanpham.donGia}"></p></td>
+				<td><p th:text="${sanpham.soLuongTon}"></p></td>
+				<td><p th:text="${sanpham.namSanXuat}"></p></td>
+			</tr>
+		</th:block>
+	</table>
+</body>
+</html>

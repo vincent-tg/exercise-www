@@ -19,12 +19,7 @@ import com.example.demo.repository.TaiKhoanRepository;
 public class demoRESTController {
 	@Autowired
 	private TaiKhoanRepository taiKhoanRepository;
-	
-	@RequestMapping("/")
-	@ResponseBody
-	public String welcome() {
-		return "REST example ! ";
-	}
+
 	@RequestMapping(value="/taikhoans",method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_ATOM_XML_VALUE})
 	@ResponseBody
 	public List<TaiKhoan> getTaikhoans() {

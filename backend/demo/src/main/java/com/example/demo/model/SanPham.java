@@ -24,7 +24,7 @@ public class SanPham implements Serializable {
 	private int soLuongTon;
 	private int namSanXuat;
 	@OneToMany
-	@JoinColumn(name = "sanpham")
+	@JoinColumn(name = "sanPham")
 	private List<ChiTietHoaDon> chiTietHoaDons;
 	@ManyToOne
 	@JoinColumn(name="maNhaSanXuat", referencedColumnName = "maNhaSanXuat")
