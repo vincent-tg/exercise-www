@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.SanPham;
@@ -51,7 +52,7 @@ public class SanPhamController {
 		return "sanpham";
 	}
 	
-	@RequestMapping(value = "/sanpham/{id}")
+	@RequestMapping(value = "/sanpham/{id}", method = RequestMethod.GET)
 	public String getChitietSanPham(Model model, @PathVariable String maSanPham) {
 		model.addAttribute("sanpham", sanPhamRepository.findById(maSanPham));
 		return "chitiet-sanpham";
