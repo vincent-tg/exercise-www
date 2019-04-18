@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Xe đạp điện</title>
+<title>Quản lý - Sản phẩm</title>
 <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
@@ -42,102 +42,82 @@
 			</div>
 		</div>
 	</nav>
-	<main class="page catalog-page">
-	<section class="clean-block clean-catalog dark">
+	<main class="page shopping-cart-page">
+	<section class="clean-block clean-cart dark">
 		<div class="container">
 			<div class="block-heading">
-				<h2 class="text-info">Xe Đạp Điện</h2>
-				<p>Điện khỏi đạp - Điện hết thì đạp</p>
+				<h2 class="text-info">Quản lý Sản phẩm</h2>
+				<p>Đây là trang quản lý sản phẩm.</p>
 			</div>
 			<div class="content">
-				<div class="row">
-					<div class="col-md-3">
-						<div class="d-none d-md-block">
-							<div class="filters">
-								<div class="filter-item">
-									<h3>Hãng Sản Xuất</h3>
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input"
-											id="formCheck-5" /><label class="form-check-label"
-											for="formCheck-5">Asama</label>
-									</div>
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input"
-											id="formCheck-6" /><label class="form-check-label"
-											for="formCheck-6">DTP</label>
-									</div>
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input"
-											id="formCheck-7" /><label class="form-check-label"
-											for="formCheck-7">HTC</label>
+				<div class="row no-gutters">
+					<div class="col-md-12 col-lg-8">
+						<div class="items">
+							<div class="row">
+								<div class="col">
+									<div>
+										<form class="form-inline mr-auto" target="_self">
+											<div class="form-group">
+												<label for="search-field">Tìm sản phẩm&nbsp;</label><input
+													class="form-control search-field" type="search"
+													name="search" id="search-field">
+											</div>
+											<button class="btn btn-primary" type="button">search</button>
+										</form>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="d-md-none">
-							<a class="btn btn-link d-md-none filter-collapse"
-								data-toggle="collapse" aria-expanded="false"
-								aria-controls="filters" role="button" href="#filters">Filters<i
-								class="icon-arrow-down filter-caret"></i></a>
-							<div class="collapse" id="filters">
-								<div class="filters">
-									<div class="filter-item">
-										<h3>Hãng Sản Xuất</h3>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox"
-												id="formCheck-5" /><label class="form-check-label"
-												for="formCheck-5">Asama</label>
+							<div class="product">
+								<div class="row justify-content-center align-items-center mt-3" th:each="sanpham : ${listSanPham}">
+									<div class="col-md-3">
+										<div class="product-image">
+											<img class="img-fluid d-block mx-auto image"
+												src="/assets/img/tech/image2.jpg">
 										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox"
-												id="formCheck-6" /><label class="form-check-label"
-												for="formCheck-6">DTP</label>
+									</div>
+									<div class="col-md-5 product-info">
+										<a href="#" class="product-name" th:text="${sanpham.tenSanPham}"></a><a href="#"><i
+											class="fa fa-edit"></i></a>
+										<p class="text-black-50" th:text="${sanpham.maSanPham}"></p>
+										<div class="product-specs">
+											<div>
+												<span>Mô tả:&nbsp;</span><span class="value" th:text="${sanpham.moTa}"></span><a
+													href="#"><i class="fa fa-edit"></i></a>
+											</div>
+											<div>
+												<span>Nhà sản xuất:&nbsp;</span><span class="value" th:text="${sanpham.nhaSanXuat.tenNhaSanXuat}"></span><a
+													href="#"><i class="fa fa-edit"></i></a>
+											</div>
+											<div>
+												<span>Năm sản xuất:&nbsp;</span><span class="value" th:text="${sanpham.namSanXuat}"></span><a
+													href="#"><i class="fa fa-edit"></i></a>
+											</div>
 										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox"
-												id="formCheck-7" /><label class="form-check-label"
-												for="formCheck-7">HTC</label>
+									</div>
+									<div class="col-6 col-md-2 quantity">
+										<label class="d-none d-md-block" for="quantity">Số
+											lượng tồn</label><input type="number" value="1" id="number"
+											class="form-control quantity-input">
+									</div>
+									<div class="col-6 col-md-2 price">
+										<a href="#"><i class="fa fa-edit"></i></a><span>#Price</span>
+									</div>
+									<div class="col">
+										<div class="row">
+											<div class="col-auto ml-auto">
+												<button class="btn btn-danger" type="button">Xóa</button>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							<div class="product"></div>
 						</div>
 					</div>
-					<div class="col-md-9">
-						<div class="products">
-							<div class="row no-gutters">
-								<th:block th:each="sanpham : ${listSanPham}">
-									<div class="col-12 col-md-6 col-lg-4">
-										<div class="clean-product-item">
-											<div class="image">
-												<a th:href="@{/sanpham/${sanpham.maSanPham}}"><img
-													class="img-fluid d-block mx-auto"
-													src="/assets/img/tech/default-bike.png"></a>
-											</div>
-											<div class="product-name">
-												<a th:href="@{/sanpham/${sanpham.maSanPham}}"
-													th:text="${sanpham.tenSanPham}"></a>
-											</div>
-											<div class="about">
-												<div class="rating">
-													<button class="btn btn-primary" type="button">Đặt
-														hàng</button>
-												</div>
-												<div class="price">
-													<h3 th:text="${sanpham.donGia}"></h3>
-												</div>
-											</div>
-										</div>
-									</div>
-								</th:block>
-							</div>
-							<nav>
-								<ul class="pagination">
-									<li class="page-item" th:each="pageNumber : ${pageNumbers}"><a
-										class="page-link" th:href="@{/sanpham(page=${pageNumber})}"
-										th:text=${pageNumber}></a></li>
-								</ul>
-							</nav>
+					<div class="col-auto col-md-12 col-lg-4">
+						<div class="summary">
+							<button class="btn btn-primary btn-block btn-sm" type="button">Thêm
+								Sản Phẩm</button>
 						</div>
 					</div>
 				</div>

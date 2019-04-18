@@ -51,8 +51,8 @@ public class SanPhamController {
 		return "sanpham";
 	}
 	
-	@RequestMapping(value = "/sanpham/{id}")
-	public String getChitietSanPham(Model model, @PathVariable String maSanPham) {
+	@RequestMapping(value = "/sanpham/{maSanPham}")
+	public String getChitietSanPham(Model model, @PathVariable(name = "maSanPham") String maSanPham) {
 		Optional<SanPham> sp = sanPhamRepository.findById(maSanPham);
 		if(sp.isPresent()) {
 			model.addAttribute("sanpham", sp.get());
