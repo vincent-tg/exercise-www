@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -13,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,14 +19,14 @@ import com.example.demo.model.SanPham;
 import com.example.demo.repository.SanPhamRepository;
 
 @Controller
-public class SanPhamController {
+public class AdminController {
 	@Autowired
 	private SanPhamRepository sanPhamRepository;
-
-	@RequestMapping(value = "/sanpham")
+	
+	@RequestMapping(value = "/quanly/sanpham")
 	public String listSanPham(Model model,
 			@RequestParam(name="page",required = false, defaultValue = "1") Optional<Integer> page ,
-			@RequestParam(name="size",required = false, defaultValue = "6") Integer size,
+			@RequestParam(name="size",required = false, defaultValue = "12") Integer size,
 			@RequestParam(name="sort",required = false, defaultValue = "ASC") String sort
 			) {
 		Sort sortable = null;
@@ -48,16 +46,6 @@ public class SanPhamController {
 			model.addAttribute("pageNumbers", pageNumbers);
 		}
 		model.addAttribute("listSanPham", sanPhamRepository.findSanPhams(pageable));
-		return "sanpham";
-	}
-	
-	@RequestMapping(value = "/sanpham/{maSanPham}")
-	public String getChitietSanPham(Model model, @PathVariable(name = "maSanPham") String maSanPham) {
-		Optional<SanPham> sp = sanPhamRepository.findById(maSanPham);
-		if(sp.isPresent()) {
-			model.addAttribute("sanpham", sp.get());
-			return "chitiet-sanpham";
-		}
-		return "home";
+		return "quanly-sanpham";
 	}
 }
