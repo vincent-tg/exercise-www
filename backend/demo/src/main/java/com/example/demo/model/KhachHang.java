@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class KhachHang implements Serializable{
 	/**
@@ -19,7 +20,8 @@ public class KhachHang implements Serializable{
 	private String email;
 	private String soDienThoai;
 	private String diaChi;
-	@OneToOne(mappedBy = "kh")
+	@OneToOne(mappedBy = "khachHang")
+	@PrimaryKeyJoinColumn
 	private TaiKhoan taiKhoan;
 	@OneToMany(mappedBy = "khachHang")
 	private List<HoaDon> dshd;
