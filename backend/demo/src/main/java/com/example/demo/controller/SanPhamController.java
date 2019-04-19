@@ -18,12 +18,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.SanPham;
+import com.example.demo.repository.NhaSanXuatRepository;
 import com.example.demo.repository.SanPhamRepository;
 
 @Controller
 public class SanPhamController {
 	@Autowired
 	private SanPhamRepository sanPhamRepository;
+	@Autowired
+	private NhaSanXuatRepository nhaSanXuatRepository;
 
 	@RequestMapping(value = "/sanpham")
 	public String listSanPham(Model model,
@@ -48,6 +51,7 @@ public class SanPhamController {
 			model.addAttribute("pageNumbers", pageNumbers);
 		}
 		model.addAttribute("listSanPham", sanPhamRepository.findSanPhams(pageable));
+		model.addAttribute("listNhaSanXuat",nhaSanXuatRepository.findAll());
 		return "sanpham";
 	}
 	

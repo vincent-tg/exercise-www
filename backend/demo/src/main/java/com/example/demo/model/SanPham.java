@@ -79,6 +79,12 @@ public class SanPham implements Serializable {
 	public void setNamSanXuat(int namSanXuat) {
 		this.namSanXuat = namSanXuat;
 	}
+	public NhaSanXuat getNhaSanXuat() {
+		return nhaSanXuat;
+	}
+	public void setNhaSanXuat(NhaSanXuat nhaSanXuat) {
+		this.nhaSanXuat = nhaSanXuat;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
