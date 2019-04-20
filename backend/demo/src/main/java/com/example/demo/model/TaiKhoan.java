@@ -1,10 +1,12 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 @Entity
@@ -21,6 +23,8 @@ public class TaiKhoan implements Serializable {
 	@JoinColumn(name="tenTaiKhoan", referencedColumnName = "maKhachHang")
 	private KhachHang khachHang;
 	
+	@ManyToMany
+    private Set<Role> roles;
 	
 	public TaiKhoan() {
 		super();
@@ -54,6 +58,14 @@ public class TaiKhoan implements Serializable {
 
 	public void setMatKhau(String matKhau) {
 		this.matKhau = matKhau;
+	}
+	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
 	@Override

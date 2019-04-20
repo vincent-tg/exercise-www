@@ -92,7 +92,7 @@ public class SanPham implements Serializable {
 	}
 	public void setNhaSanXuat(NhaSanXuat nhaSanXuat) {
 		this.nhaSanXuat = nhaSanXuat;
-	
+	}
 	public String getImgURL() {
 		return imgURL;
 	}
@@ -129,3 +129,4 @@ public class SanPham implements Serializable {
 	}
 	
 }
+ 

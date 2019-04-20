@@ -147,30 +147,26 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<form th:action="@{/sanpham}" th:object="${sanpham}" method="post">
+								<form action="" th:object="${sanphamnew}" method="post" id="formSanPham">
 									<div class="form-group">
 										<label for="tenSanPham">Tên Sản phẩm</label> <input
-											type="text" class="form-control" id="tenSanPham" th:field="">
+											type="text" class="form-control" id="tenSanPham" th:field="*{tenSanPham}">
 									</div>
 									<div class="form-group">
 										<label for="moTa">Mô tả</label> <input type="text"
-											class="form-control" id="moTa">
+											class="form-control" id="moTa" th:field="*{moTa}">
 									</div>
 									<div class="form-group">
 										<label for="donGia">Đơn Giá</label> <input type="text"
-											class="form-control" id="donGia">
+											class="form-control" id="donGia" th:field="*{donGia}">
 									</div>
 									<div class="form-group">
 										<label for="soLuongTon">Số lượng</label> <input type="text"
-											class="form-control" id="soLuongTon">
+											class="form-control" id="soLuongTon" th:field="*{soLuongTon}">
 									</div>
 									<div class="form-group">
 										<label for="namSanXuat">Năm Sản xuất</label> <input
-											type="number" class="form-control" id="namSanXuat">
-									</div>
-									<div class="form-group">
-										<label for="maNhaSanXuat">Mã NSX</label> <input type="text"
-											class="form-control" id="maNhaSanXuat">
+											type="number" class="form-control" id="namSanXuat" th:field="*{namSanXuat}">
 									</div>
 
 								</form>
@@ -179,7 +175,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary">Lưu</button>
+					<button type="submit" th:action="@{/quanly/sanpham}" form="formSanPham" class="btn btn-primary">Lưu</button>
 				</div>
 			</div>
 
