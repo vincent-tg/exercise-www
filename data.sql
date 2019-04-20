@@ -1,10 +1,10 @@
 use dbTest
 INSERT INTO role
-                         (name)
-VALUES        ('user')
+                         (id,name)
+VALUES        (1,'user')
 INSERT INTO role
-                         (name)
-VALUES        ('admin')
+                         (id,name)
+VALUES        (2,'admin')
 INSERT INTO khach_hang
                          (ma_khach_hang)
 VALUES        ('admin')

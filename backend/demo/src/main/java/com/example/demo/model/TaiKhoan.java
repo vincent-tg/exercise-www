@@ -15,6 +15,7 @@ public class TaiKhoan implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	private String tenTaiKhoan;
 	private String matKhau;
