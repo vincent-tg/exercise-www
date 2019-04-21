@@ -4,10 +4,14 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class KhachHang implements Serializable{
 	/**
@@ -15,6 +19,8 @@ public class KhachHang implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	private String maKhachHang;
 	private String hoTenKhachHang;
 	private String email;
@@ -29,9 +35,8 @@ public class KhachHang implements Serializable{
 		super();
 	}
 
-	public KhachHang(String maKhachHang, String hoTenKhachHang, String email, String soDienThoai, String diaChi) {
+	public KhachHang(String hoTenKhachHang, String email, String soDienThoai, String diaChi) {
 		super();
-		this.maKhachHang = maKhachHang;
 		this.hoTenKhachHang = hoTenKhachHang;
 		this.email = email;
 		this.soDienThoai = soDienThoai;

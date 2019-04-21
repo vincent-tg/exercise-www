@@ -10,29 +10,30 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Role {
-    @Id
-    private Long id;
+	@Id
+	private Long id;
 
-    private String name;
+	private String ten;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<TaiKhoan> taikhoan;
-    
-    public Long getId() {
-        return id;
-    }
+	@ManyToMany(mappedBy = "roles")
+	private Set<TaiKhoan> taikhoan;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
 
 	public Set<TaiKhoan> getTaikhoan() {
 		return taikhoan;

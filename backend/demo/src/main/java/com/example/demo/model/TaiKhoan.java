@@ -4,29 +4,36 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class TaiKhoan implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
+	@GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
+	private String maTaiKhoan;
 	private String tenTaiKhoan;
 	private String matKhau;
 	@OneToOne
 	@MapsId
-	@JoinColumn(name="tenTaiKhoan", referencedColumnName = "maKhachHang")
+	@JoinColumn(name="maTaiKhoan", referencedColumnName = "maKhachHang")
 	private KhachHang khachHang;
-	
+
 	@ManyToMany
-    private Set<Role> roles;
-	
+	private Set<Role> roles;
+
 	public TaiKhoan() {
 		super();
 	}
@@ -37,12 +44,12 @@ public class TaiKhoan implements Serializable {
 		this.matKhau = matKhau;
 	}
 
-	public KhachHang getKhachHang() {
-		return khachHang;
+	public String getMaTaiKhoan() {
+		return maTaiKhoan;
 	}
 
-	public void setKhachHang(KhachHang khachHang) {
-		this.khachHang = khachHang;
+	public void setMaTaiKhoan(String maTaiKhoan) {
+		this.maTaiKhoan = maTaiKhoan;
 	}
 
 	public String getTenTaiKhoan() {
@@ -52,6 +59,16 @@ public class TaiKhoan implements Serializable {
 	public void setTenTaiKhoan(String tenTaiKhoan) {
 		this.tenTaiKhoan = tenTaiKhoan;
 	}
+	
+	public KhachHang getKhachHang() {
+		return khachHang;
+	}
+
+	public void setKhachHang(KhachHang khachHang) {
+		this.khachHang = khachHang;
+	}
+
+
 
 	public String getMatKhau() {
 		return matKhau;
@@ -60,7 +77,7 @@ public class TaiKhoan implements Serializable {
 	public void setMatKhau(String matKhau) {
 		this.matKhau = matKhau;
 	}
-	
+
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -93,10 +110,4 @@ public class TaiKhoan implements Serializable {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "TaiKhoan [tenTaiKhoan=" + tenTaiKhoan + ", matKhau=" + matKhau + "]";
-	}
-	
 }
