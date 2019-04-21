@@ -27,7 +27,7 @@ public class DemoApplication {
 	private RoleRepository roleRepository;
 	@Autowired 
 	private KhachHangRepository khachHangRepository;
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
@@ -41,12 +41,10 @@ public class DemoApplication {
 			Role role = new Role();
 			role.setId((long) 1);
 			role.setTen("admin");
-			taiKhoan.setRoles(new HashSet<>(Arrays.asList(role)));
-			
+			taiKhoan.setRoles(new HashSet<>(Arrays.asList(role)));		
 			roleRepository.save(role);
 			taiKhoanRepository.save(taiKhoan);
 			khachHangRepository.save(kh);
-
 
 		};
 	}

@@ -19,9 +19,9 @@ public class TaiKhoanController {
 		
 		return "dangnhap";
 	}
-	@PostMapping
-	public String login(@ModelAttribute(name = "taikhoan") TaiKhoan taikhoan) {
-		
-		return "home";
-	}
+//	@PostMapping
+//	public String login(@ModelAttribute(name = "taikhoan") TaiKhoan taikhoan) {
+//		
+//		return "home";
+//	}
 }
