@@ -42,4 +42,10 @@ public class Role {
 	public void setTaikhoan(Set<TaiKhoan> taikhoan) {
 		this.taikhoan = taikhoan;
 	}
+
+	@Override
+	public String toString() {
+		return ten;
+	}
+	
 }

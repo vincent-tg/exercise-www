@@ -2,8 +2,11 @@ package com.example.demo;
 
 
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +20,16 @@ import com.example.demo.model.TaiKhoan;
 import com.example.demo.repository.KhachHangRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.TaiKhoanRepository;
+import com.example.demo.service.TaiKhoanService;
 
 @SpringBootApplication
 public class DemoApplication {
 	
 	@Autowired
 	private TaiKhoanRepository taiKhoanRepository;
+	@Autowired
+    private TaiKhoanService taiKhoanService;
+
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired 
@@ -43,9 +50,8 @@ public class DemoApplication {
 			role.setTen("admin");
 			taiKhoan.setRoles(new HashSet<>(Arrays.asList(role)));		
 			roleRepository.save(role);
-			taiKhoanRepository.save(taiKhoan);
+			taiKhoanService.save(taiKhoan);
 			khachHangRepository.save(kh);
-
 		};
 	}
 }

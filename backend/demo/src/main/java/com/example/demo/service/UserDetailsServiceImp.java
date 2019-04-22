@@ -1,13 +1,18 @@
 package com.example.demo.service;
 
 
+import java.util.ArrayList;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.example.demo.model.Role;
 import com.example.demo.model.TaiKhoan;
 import com.example.demo.repository.TaiKhoanRepository;
 
@@ -19,16 +24,23 @@ public class UserDetailsServiceImp  implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		TaiKhoan taikhoan = taiKhoanRepository.findByTenTaiKhoan(username);
-		UserBuilder builder = null;
 		if(taikhoan!=null) {
-			builder = org.springframework.security.core.userdetails.User.withUsername(username);
-			builder.password(new BCryptPasswordEncoder().encode(taikhoan.getMatKhau()));
-			builder.roles(taikhoan.getRoles().stream().toArray(String[]::new));
+			return toUserDetails(taikhoan);
 		}
 		else {
 			throw new  UsernameNotFoundException("Tai khoan khong tim thay");
 		}
-		return builder.build();
+	}
+	private UserDetails toUserDetails(TaiKhoan taikhoan) {
+		Set<Role> rolelist = taikhoan.getRoles();
+		ArrayList<String> strs = new ArrayList<String>();
+		for (Role role : rolelist) {
+			strs.add(role.getTen());
+		}
+		String[] roles = strs.toArray(new String[0]);
+		return User.withUsername(taikhoan.getTenTaiKhoan())
+				.password(taikhoan.getMatKhau())
+				.roles(roles).build();
 	}
 
 }
