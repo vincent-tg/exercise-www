@@ -45,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.loginPage("/dangnhap").permitAll()
 		.and()
 		.logout()
+		.logoutUrl("/dangxuat")
 		.permitAll();
 	}
 	public void configure(WebSecurity web) throws Exception {
