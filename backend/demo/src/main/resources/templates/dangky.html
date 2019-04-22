@@ -49,16 +49,16 @@
 				<h2 class="text-info">Đăng Nhập</h2>
 				<p>Đây là trang Đăng Nhập&nbsp;</p>
 			</div>
-			<form th:action="@{/dangky}" method="POST">
+			<form th:action="@{/dangky}" th:object="${taikhoan}" method="POST">
 				<p th:if="${param.error}" class="error">Invalid email or
 					password</p>
 				<div class="form-group">
-					<label for="username">Tài khoản</label><input
-						class="form-control item" type="text" id="username">
+					<label for="username">Tên Đăng nhập</label><input
+						class="form-control item" type="text" id="username" th:field="*{tenTaiKhoan}">
 				</div>
 				<div class="form-group">
 					<label for="password">Mật khẩu</label><input class="form-control"
-						type="password" id="password">
+						type="password" id="password" th:field="*{matKhau}">				
 				</div>
 				<div class="form-group">
 					<div class="form-check">
@@ -66,8 +66,14 @@
 							class="form-check-label" for="checkbox">Remember me</label>
 					</div>
 				</div>
-				<button class="btn btn-primary btn-block" type="submit">Đăng
-					Nhập</button>
+				<div class="form-group">
+					<label for="username">Họ và Tên</label><input
+						class="form-control item" type="text" id="tenkhachhang"
+						name="tenkhachhang">
+				</div>
+				<button class="btn btn-primary btn-block" type="submit">Dăng
+					Ký</button>
+				<button class="btn btn-primary btn-light" type="reset">Nhập lại</button>
 			</form>
 		</div>
 	</section>

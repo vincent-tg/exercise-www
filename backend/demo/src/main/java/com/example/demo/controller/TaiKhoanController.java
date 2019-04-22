@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,19 +19,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.model.KhachHang;
+import com.example.demo.model.Role;
 import com.example.demo.model.TaiKhoan;
+import com.example.demo.repository.KhachHangRepository;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.TaiKhoanRepository;
+import com.example.demo.service.TaiKhoanService;
 
 @Controller
 public class TaiKhoanController {	
 	@Autowired
 	private TaiKhoanRepository taiKhoanRepository;
+	@Autowired
+	private TaiKhoanService TaiKhoanService;
+	@Autowired
+	private KhachHangRepository khachHangRepository;
+	@Autowired
+	private RoleRepository roleRepository;
+	
 	@RequestMapping("/dangnhap")
 	public String enterLoginPage() {
 
 		return "dangnhap";
 	}
-	
+	@RequestMapping("/dangky")
+	public String enterRegister(Model model) {
+		model.addAttribute("taikhoan",new TaiKhoan());
+		return "dangky";
+	}
+	@RequestMapping( value = "/dangky", method = RequestMethod.POST)
+	public String createNewUser(@ModelAttribute("taikhoan") TaiKhoan taiKhoan) {
+		KhachHang kh = new KhachHang();
+		kh.setTaiKhoan(taiKhoan);
+		taiKhoan.setRoles(new HashSet<>(Arrays.asList(roleRepository.findByTen("user"))));
+		taiKhoan.setKhachHang(kh);
+		TaiKhoanService.save(taiKhoan);
+		khachHangRepository.save(kh);
+		return "redirect:/";
+	}
 	@RequestMapping(value = "/dangxuat", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -37,7 +66,7 @@ public class TaiKhoanController {
 		}
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/taikhoan", method = RequestMethod.GET)
 	public String currentUserName(Model model, Authentication authentication) {
 		if(authentication!=null) {
