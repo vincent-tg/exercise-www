@@ -54,26 +54,20 @@
 					password</p>
 				<div class="form-group">
 					<label for="username">Tên Đăng nhập</label><input
-						class="form-control item" type="text" id="username" th:field="*{tenTaiKhoan}">
+						class="form-control item" type="text" id="username"
+						th:field="*{tenTaiKhoan}">
 				</div>
 				<div class="form-group">
 					<label for="password">Mật khẩu</label><input class="form-control"
-						type="password" id="password" th:field="*{matKhau}">				
+						type="password" id="password" th:field="*{matKhau}">
 				</div>
 				<div class="form-group">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="checkbox"><label
-							class="form-check-label" for="checkbox">Remember me</label>
-					</div>
+					<button class="btn btn-primary btn-block" type="submit">Dăng
+						Ký</button>
+					<button class="btn btn-primary btn-light" type="reset">Nhập
+						lại</button>
 				</div>
-				<div class="form-group">
-					<label for="username">Họ và Tên</label><input
-						class="form-control item" type="text" id="tenkhachhang"
-						name="tenkhachhang">
-				</div>
-				<button class="btn btn-primary btn-block" type="submit">Dăng
-					Ký</button>
-				<button class="btn btn-primary btn-light" type="reset">Nhập lại</button>
+
 			</form>
 		</div>
 	</section>
