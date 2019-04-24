@@ -38,40 +38,11 @@
 									</div>
 									<div class="col-6 col-md-2 quantity">
 										<label class="d-none d-md-block" for="quantity">Số
-											lượng</label><input type="number" th:value="san" id="number"
+											lượng</label><input type="number" th:value="${hang.getValue()}" id="number"
 											class="form-control quantity-input">
 									</div>
 									<div class="col-6 col-md-2 price">
-										<span>$120</span>
-									</div>
-								</div>
-							</div>
-							<div class="product">
-								<div class="row justify-content-center align-items-center">
-									<div class="col-md-3">
-										<div class="product-image">
-											<img class="img-fluid d-block mx-auto image"
-												src="assets/img/tech/image2.jpg">
-										</div>
-									</div>
-									<div class="col-md-5 product-info">
-										<a href="#" class="product-name">Lorem Ipsum dolor</a>
-										<div class="product-specs">
-											<div>
-												<span>Display:&nbsp;</span><span class="value">5 inch</span>
-											</div>
-											<div>
-												<span>RAM:&nbsp;</span><span class="value">4GB</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-6 col-md-2 quantity">
-										<label class="d-none d-md-block" for="quantity">Quantity</label><input
-											type="number" value="1" id="number"
-											class="form-control quantity-input">
-									</div>
-									<div class="col-6 col-md-2 price">
-										<span>$120</span>
+										<span th:text="${hang.getKey().donGia}"></span>
 									</div>
 								</div>
 							</div>
