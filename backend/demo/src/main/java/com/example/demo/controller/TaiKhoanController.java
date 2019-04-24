@@ -37,7 +37,7 @@ public class TaiKhoanController {
 	private KhachHangRepository khachHangRepository;
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@RequestMapping("/dangnhap")
 	public String enterLoginPage() {
 
@@ -54,9 +54,13 @@ public class TaiKhoanController {
 		kh.setTaiKhoan(taiKhoan);
 		taiKhoan.setRoles(new HashSet<>(Arrays.asList(roleRepository.findByTen("user"))));
 		taiKhoan.setKhachHang(kh);
-		TaiKhoanService.save(taiKhoan);
-		khachHangRepository.save(kh);
-		return "redirect:/";
+		if(TaiKhoanService.save(taiKhoan)) {
+			khachHangRepository.save(kh);
+			return "redirect:/";
+		}
+		return "dangky";
+		
+		
 	}
 	@RequestMapping(value = "/dangxuat", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
