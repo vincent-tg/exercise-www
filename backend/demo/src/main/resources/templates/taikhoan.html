@@ -1,9 +1,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>Index Page</title>
+<div th:replace="/header :: header"></div>
 </head>
-<body> 
+<body>
+	<div th:replace="/header :: navbar"></div>
 	<p th:text="${taikhoan.tenTaiKhoan}"></p>
 	<p th:text="${taikhoan.matKhau}"></p>
 </body>
