@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.math.BigDecimal;
 import java.util.Map;
 
+import com.example.demo.model.KhachHang;
 import com.example.demo.model.SanPham;
 
 public interface GioHangService {
@@ -12,7 +13,7 @@ public interface GioHangService {
 
     Map<SanPham, Integer> getDanhSachSanPham();
 
-    void thanhToan();
+    void thanhToan(KhachHang khachHang);
 
     BigDecimal getTongTien();
 }

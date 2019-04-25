@@ -23,7 +23,7 @@
 									<div class="col-md-3">
 										<div class="product-image">
 											<img class="img-fluid d-block mx-auto image"
-												src="assets/img/tech/image2.jpg">
+												src="assets/img/tech/default-bike.png">
 										</div>
 									</div>
 									<div class="col-md-5 product-info">
@@ -38,12 +38,13 @@
 									</div>
 									<div class="col-6 col-md-2 quantity">
 										<label class="d-none d-md-block" for="quantity">Số
-											lượng</label><input type="number" th:value="${hang.getValue()}" id="number"
-											class="form-control quantity-input">
+											lượng</label><input type="number" th:value="${hang.getValue()}"
+											id="number" class="form-control quantity-input">
 									</div>
 									<div class="col-6 col-md-2 price">
 										<span th:text="${hang.getKey().donGia}"></span>
 									</div>
+									<a th:href="@{'/giohang/xoasanpham/{maSanPham}'(maSanPham=${hang.getKey().maSanPham})}"><button class="btn" type="button">Xóa</button></a>
 								</div>
 							</div>
 							<div class="product"></div>
@@ -53,18 +54,12 @@
 						<div class="summary">
 							<h3>thanh toán</h3>
 							<h4>
-								<span class="text">Thành tiền</span><span class="price">$360</span>
+								<span class="text">Tổng tiền</span><span class="price"
+									th:text="${tongtien}"></span>
 							</h4>
-							<h4>
-								<span class="text">Giảm giá</span><span class="price">$0</span>
-							</h4>
-							<h4>
-								<span class="text"></span><span class="price">$0</span>
-							</h4>
-							<h4>
-								<span class="text">Tổng tiền</span><span class="price">$360</span>
-							</h4>
-							<button class="btn btn-primary btn-block btn-lg" type="button">Mua</button>
+							<a th:href="@{'/giohang/thanhtoan'}"><button class="btn btn-primary btn-block btn-lg"
+									type="button">Thanh toán</button></a>
+
 						</div>
 					</div>
 				</div>

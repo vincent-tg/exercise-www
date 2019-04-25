@@ -27,10 +27,11 @@ public class ChiTietHoaDon implements Serializable {
 	public ChiTietHoaDon() {
 		super();
 	}
-	public ChiTietHoaDon(double donGia, int soLuong) {
+	public ChiTietHoaDon(double donGia, int soLuong, SanPham sanPham) {
 		super();
 		this.donGia = donGia;
 		this.soLuong = soLuong;
+		this.sanPham = sanPham;
 	}
 	
 	public ChiTietHoaDon(HoaDon hoaDon, SanPham sanPham, double donGia, int soLuong) {
@@ -39,6 +40,19 @@ public class ChiTietHoaDon implements Serializable {
 		this.sanPham = sanPham;
 		this.donGia = donGia;
 		this.soLuong = soLuong;
+	}
+	
+	public SanPham getSanPham() {
+		return sanPham;
+	}
+	public void setSanPham(SanPham sanPham) {
+		this.sanPham = sanPham;
+	}
+	public HoaDon getHoaDon() {
+		return hoaDon;
+	}
+	public void setHoaDon(HoaDon hoaDon) {
+		this.hoaDon = hoaDon;
 	}
 	public double getDonGia() {
 		return donGia;
@@ -52,6 +66,7 @@ public class ChiTietHoaDon implements Serializable {
 	public void setSoLuong(int soLuong) {
 		this.soLuong = soLuong;
 	}
+	
 	@Override
 	public String toString() {
 		return "ChiTietHoaDon [donGia=" + donGia + ", soLuong=" + soLuong + "]";

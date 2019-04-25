@@ -85,8 +85,9 @@
 											</div>
 											<div class="about">
 												<div class="rating">
-													<button class="btn btn-primary" type="button">Đặt
-														hàng</button>
+												<a th:href="@{'/giohang/themsanpham/{maSanPham}'(maSanPham=${sanpham.maSanPham})}" th:if="${sanpham.soLuongTon}>0">
+													<button  class="btn btn-primary" type="button" >Thêm vào giỏ</button>
+												</a>
 												</div>
 												<div class="price">
 													<h3 th:text="${sanpham.donGia}"></h3>

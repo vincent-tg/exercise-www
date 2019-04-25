@@ -5,11 +5,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class HoaDon implements Serializable {
 	/**
@@ -17,31 +21,27 @@ public class HoaDon implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	private String maHoaDon;
 	private LocalDate ngayLap;
 	@ManyToOne
 	@JoinColumn(name="maKhachHang",referencedColumnName = "maKhachHang")
 	private KhachHang khachHang;
-	@OneToMany(mappedBy ="hoaDon" )
+	@OneToMany(mappedBy ="hoaDon", cascade = CascadeType.ALL)
 	private List<ChiTietHoaDon> dssp;
 	
 	public HoaDon() {
 		super();
 	}
 	
-	public HoaDon(String maHoaDon, LocalDate ngayLap) {
+	public HoaDon(LocalDate ngayLap, KhachHang khachHang, List<ChiTietHoaDon> dssp) {
 		super();
-		this.maHoaDon = maHoaDon;
-		this.ngayLap = ngayLap;
-	}
-	
-	public HoaDon(String maHoaDon, LocalDate ngayLap, KhachHang khachHang) {
-		super();
-		this.maHoaDon = maHoaDon;
 		this.ngayLap = ngayLap;
 		this.khachHang = khachHang;
+		this.dssp = dssp;
 	}
-	
+
 	public List<ChiTietHoaDon> getDssp() {
 		return dssp;
 	}
