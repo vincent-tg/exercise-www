@@ -13,14 +13,10 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.KhachHang;
-import com.example.demo.model.Role;
 import com.example.demo.model.TaiKhoan;
 import com.example.demo.repository.KhachHangRepository;
 import com.example.demo.repository.RoleRepository;

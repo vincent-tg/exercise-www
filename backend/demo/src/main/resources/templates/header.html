@@ -44,6 +44,9 @@
 							role="presentation"><a class="nav-link"
 							th:href="@{/taikhoan}">
 								<p th:text="${#request.userPrincipal.name}"></p>
+								<div th:if="${#request.userPrincipal.name} == 'admin'">
+									<a th:href="@{/quanly}">Quản Lý</a>
+								</div>
 						</a></li>
 						<li th:if="${#request.userPrincipal}" class="nav-item"
 							role="presentation"><a class="nav-link"
