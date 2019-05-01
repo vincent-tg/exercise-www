@@ -39,15 +39,16 @@
 							th:href="@{/lienhe}">Liên hệ</a></li>
 						<li class="nav-item" role="presentation"><a class="nav-link"
 							th:href="@{/giohang}">Giỏ hàng<i class="fa fa-shopping-cart"></i></a></li>
-
-						<li th:if="${#request.userPrincipal}" class="nav-item"
+						<th:block th:if="${#request.userPrincipal}">
+						<li class="nav-item"
 							role="presentation"><a class="nav-link"
 							th:href="@{/taikhoan}">
 								<p th:text="${#request.userPrincipal.name}"></p>
-								<div th:if="${#request.userPrincipal.name} == 'admin'">
-									<a th:href="@{/quanly}">Quản Lý</a>
-								</div>
 						</a></li>
+						<li th:if="${#request.userPrincipal.name} == 'admin'" role="presentation" class="nav-item">
+									<a class="nav-link" th:href="@{/quanly}">Quản Lý</a>
+								</li>
+						</th:block>
 						<li th:if="${#request.userPrincipal}" class="nav-item"
 							role="presentation"><a class="nav-link"
 							th:href="@{/dangxuat}">Đăng Xuất</a></li>
