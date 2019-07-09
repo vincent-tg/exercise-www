@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class SanPham implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -23,8 +23,8 @@ public class SanPham implements Serializable {
 	private String moTa;
 	private int soLuongTon;
 	private int namSanXuat;
-	@OneToMany
-	@JoinColumn(name = "sanPham")
+	private String imgURL;
+	@OneToMany(mappedBy = "sanPham")
 	private List<ChiTietHoaDon> chiTietHoaDons;
 	@ManyToOne
 	@JoinColumn(name="maNhaSanXuat", referencedColumnName = "maNhaSanXuat")
@@ -34,7 +34,7 @@ public class SanPham implements Serializable {
 	public SanPham() {
 		super();
 	}
-	public SanPham(String maSanPham, double donGia, String tenSanPham, String moTa, int namSanXuat) {
+	public SanPham(String maSanPham, double donGia, String tenSanPham, String moTa, int namSanXuat,String imgURL) {
 		super();
 		this.maSanPham = maSanPham;
 		this.donGia = donGia;
@@ -42,6 +42,14 @@ public class SanPham implements Serializable {
 		this.moTa = moTa;
 		this.namSanXuat = namSanXuat;
 		this.soLuongTon = 0;
+		this.imgURL = imgURL;
+	}
+	
+	public List<ChiTietHoaDon> getChiTietHoaDons() {
+		return chiTietHoaDons;
+	}
+	public void setChiTietHoaDons(List<ChiTietHoaDon> chiTietHoaDons) {
+		this.chiTietHoaDons = chiTietHoaDons;
 	}
 	public String getMaSanPham() {
 		return maSanPham;
@@ -79,6 +87,18 @@ public class SanPham implements Serializable {
 	public void setNamSanXuat(int namSanXuat) {
 		this.namSanXuat = namSanXuat;
 	}
+	public NhaSanXuat getNhaSanXuat() {
+		return nhaSanXuat;
+	}
+	public void setNhaSanXuat(NhaSanXuat nhaSanXuat) {
+		this.nhaSanXuat = nhaSanXuat;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -109,3 +129,4 @@ public class SanPham implements Serializable {
 	}
 	
 }
+ 

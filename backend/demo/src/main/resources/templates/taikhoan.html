@@ -1,0 +1,10 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<div th:replace="/header :: header"></div>
+</head>
+<body>
+	<div th:replace="/header :: navbar"></div>
+	<p th:text="${taikhoan.tenTaiKhoan}"></p>
+	<p th:text="${taikhoan.matKhau}"></p>
+</body>
+</html>

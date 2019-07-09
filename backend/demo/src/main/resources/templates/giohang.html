@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<div th:replace="/header :: header"></div>
+</head>
+
+<body>
+	<div th:replace="/header :: navbar"></div>
+	<main class="page shopping-cart-page">
+	<section class="clean-block clean-cart dark">
+		<div class="container">
+			<div class="block-heading">
+				<h2 class="text-info">Giỏ Hàng</h2>
+			</div>
+			<div class="content">
+				<div class="row no-gutters">
+					<div class="col-md-12 col-lg-8">
+						<div class="items">
+							<div class="product">
+								<div class="row justify-content-center align-items-center"
+									th:each="hang :${giohang}">
+									<div class="col-md-3">
+										<div class="product-image">
+											<img class="img-fluid d-block mx-auto image"
+												src="assets/img/tech/default-bike.png">
+										</div>
+									</div>
+									<div class="col-md-5 product-info">
+										<a href="#" class="product-name"
+											th:text="${hang.getKey().tenSanPham}"></a>
+										<div class="product-specs">
+											<div>
+												<span>NSX : &nbsp;</span><span class="value"
+													th:text="${hang.getKey().nhaSanXuat.tenNhaSanXuat}"></span>
+											</div>
+										</div>
+									</div>
+									<div class="col-6 col-md-2 quantity">
+										<label class="d-none d-md-block" for="quantity">Số
+											lượng</label><input type="number" th:value="${hang.getValue()}"
+											id="number" class="form-control quantity-input">
+									</div>
+									<div class="col-6 col-md-2 price">
+										<span th:text="${hang.getKey().donGia}"></span>
+									</div>
+									<a th:href="@{'/giohang/xoasanpham/{maSanPham}'(maSanPham=${hang.getKey().maSanPham})}"><button class="btn" type="button">Xóa</button></a>
+								</div>
+							</div>
+							<div class="product"></div>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-4">
+						<div class="summary">
+							<h3>thanh toán</h3>
+							<h4>
+								<span class="text">Tổng tiền</span><span class="price"
+									th:text="${tongtien}"></span>
+							</h4>
+							<a th:href="@{'/giohang/thanhtoan'}"><button class="btn btn-primary btn-block btn-lg"
+									type="button">Thanh toán</button></a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</main>
+	<footer class="page-footer dark">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<h5>Get started</h5>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Sign up</a></li>
+						<li><a href="#">Downloads</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>About us</h5>
+					<ul>
+						<li><a href="#">Company Information</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="#">Reviews</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Support</h5>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Help desk</a></li>
+						<li><a href="#">Forums</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Legal</h5>
+					<ul>
+						<li><a href="#">Terms of Service</a></li>
+						<li><a href="#">Terms of Use</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<p>© 2018 Copyright Text</p>
+		</div>
+	</footer>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+	<script src="assets/js/smoothproducts.min.js"></script>
+	<script src="assets/js/theme.js"></script>
+</body>
+
+</html>
